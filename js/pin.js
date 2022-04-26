@@ -42,12 +42,32 @@ document.getElementById('submitBtn').addEventListener('click',function(){
     const userPin = document.getElementById("inputPin").value;
     const wrongNotify = document.getElementById("wrongNotify");
     const rightNotify = document.getElementById('rightNotify');
+    // **try left number 
+    const tryLeftId = document.getElementById('tryLeft');
+    let tryLeftText = tryLeftId.innerText;
+    let tryLeftNumber = parseInt(tryLeftText);
+        
     if(randomPin == userPin){
         rightNotify.style.display = 'block';
         wrongNotify.style.display = 'none';
+        tryLeftId.innerText = 3;
     }
     else{
         wrongNotify.style.display = 'block';
         rightNotify.style.display = 'none';
+        // const tryLeftId = document.getElementById('tryLeft');
+        // let tryLeftText = tryLeftId.innerText;
+        // let tryLeftNumber = parseInt(tryLeftText);
+        if(tryLeftNumber>0){
+            
+            tryLeftNumber = tryLeftNumber - 1;
+            tryLeftId.innerText = tryLeftNumber;
+        }
+        else{
+            alert('your all atempts lost');
+            window.location.reload();
+        }
+        
+        
     }
 })
