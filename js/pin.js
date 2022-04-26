@@ -34,4 +34,20 @@ else{
     InputPin.value = newPin;
 }
 
+});
+
+// ** verify button script stats from here 
+document.getElementById('submitBtn').addEventListener('click',function(){
+    const randomPin = document.getElementById("generatePinInput").value;
+    const userPin = document.getElementById("inputPin").value;
+    const wrongNotify = document.getElementById("wrongNotify");
+    const rightNotify = document.getElementById('rightNotify');
+    if(randomPin == userPin){
+        rightNotify.style.display = 'block';
+        wrongNotify.style.display = 'none';
+    }
+    else{
+        wrongNotify.style.display = 'block';
+        rightNotify.style.display = 'none';
+    }
 })
